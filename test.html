@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Webpage</title>
+</head>
+<body>
+  <h1>Welcome to my webpage</h1>
+  <div id="root">
+  <h1>Hello</h1>
+  <script>
+    const root = document.querySelector('#root');
+    const shadowRoot = root.attachShadow({ mode: 'open' });
+
+    const p = document.createElement('p');
+    p.textContent = 'This is a paragraph inside the shadow root';
+    shadowRoot.appendChild(p);
+  </script>
+  <div><h1>B</h1></div>
+  </div>
+</body>
+</html>
