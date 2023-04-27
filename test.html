@@ -17,5 +17,37 @@
   </script>
   <div><h1>B</h1></div>
   </div>
+  <div id="parent"></div>
+
+<template id="shadowRootTemplate">
+  <style>
+    :host iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <iframe src="https://www.example.com"></iframe>
+</template>
+
+<script>
+  const parentElement = document.getElementById('parent');
+  const shadowRootTemplate = document.getElementById('shadowRootTemplate');
+
+  const shadowRoot = parentElement.attachShadow({ mode: 'open' });
+  const templateContent = shadowRootTemplate.content;
+  shadowRoot.appendChild(templateContent.cloneNode(true));
+</script>
+<button id="load-page-button">Load Page</button>
+<iframe id="page-iframe"></iframe>
+
+<script>
+  const loadPageButton = document.getElementById('load-page-button');
+  const pageIframe = document.getElementById('page-iframe');
+
+  loadPageButton.addEventListener('click', () => {
+    const pageUrl = 'https://www.github.com';
+    pageIframe.src = pageUrl;
+  });
+</script>
 </body>
 </html>
