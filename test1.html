@@ -4,18 +4,12 @@
   <title>My Webpage</title>
 </head>
 <body>
-  <h1>Welcome to my webpage</h1>
-  <div id="root">
-  <h1>Hello</h1>
-  <script>
-    const root = document.querySelector('#root');
-    const shadowRoot = root.attachShadow({ mode: 'open' });
-
-    const p = document.createElement('p');
-    p.textContent = 'This is a paragraph inside the shadow root';
-    shadowRoot.appendChild(p);
-  </script>
-  <div><h1>B</h1></div>
-  </div>
+<h1>The iframe element</h1>
+<iframe id="smpl1" src="https://www.w3schools.com" title="sample1">
+</iframe>
+<iframe id="smpl2" src="https://www.w3schools.com" title="sample2">
+</iframe>
+<iframe id="smpl3" src="https://www.w3schools.com" title="sample3">
+</iframe>
 </body>
 </html>
