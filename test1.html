@@ -5,10 +5,14 @@
 </head>
 <body>
 <h1>The iframe element</h1>
-<iframe id="smpl1" src="https://www.w3schools.com" title="sample1">
-<iframe id="smpl3" src="https://www.w3schools.com" title="sample3">
-</iframe>
-</iframe>
+<iframe src="https://parent-iframe.com" width="800" height="600">
+		<!-- Iframes are not supported -->
+		<p>Your browser does not support iframes.</p>
+		<iframe src="https://child-iframe.com" width="500" height="400">
+			<!-- Iframes are not supported -->
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+	</iframe>
 <iframe id="smpl2" src="https://www.w3schools.com" title="sample2">
 </iframe>
 <iframe id="smpl3" src="https://www.w3schools.com" title="sample3">
