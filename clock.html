@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Continuous Clock</title>
+  <style>
+    #clock {
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Format the time values to always have two digits
+      hours = ("0" + hours).slice(-2);
+      minutes = ("0" + minutes).slice(-2);
+      seconds = ("0" + seconds).slice(-2);
+
+      var time = hours + ":" + minutes + ":" + seconds;
+
+      // Update the clock element in the DOM
+      document.getElementById("clock").textContent = time;
+
+      // Schedule the next update after 1 second
+      setTimeout(updateClock, 1000);
+    }
+
+    // Start the initial clock update
+    updateClock();
+  </script>
+</body>
+</html>
