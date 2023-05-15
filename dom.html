@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Character Data Changed Example</title>
+  <title>DOM CharacterDataChanged Example</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const targetElement = document.getElementById('target-element');
+
+      // Function to handle button click
+      const handleClick = () => {
+        targetElement.textContent = 'New Text Content';
+      };
+
+      // Attach click event listener to the button
+      const button = document.getElementById('change-button');
+      button.addEventListener('click', handleClick);
+    });
+  </script>
 </head>
 <body>
-  <div id="my-element">Initial text content</div>
-
-  <script>
-    var targetNode = document.getElementById('my-element');
-
-    // Create a new instance of the Mutation Observer
-    var observer = new MutationObserver(function(mutationsList, observer) {
-      for (var mutation of mutationsList) {
-        if (mutation.type === 'characterData') {
-          // Text content of the node has changed
-          console.log('Text content changed:', mutation.target.textContent);
-        }
-      }
-    });
-
-    // Configuration for the observer
-    var config = { characterData: true, subtree: true };
-
-    // Start observing the target node with the specified configuration
-    observer.observe(targetNode, config);
-
-    // Modify the text content of the target node after a delay
-    setTimeout(function() {
-      targetNode.textContent = 'Modified text content';
-    }, 2000);
-  </script>
+  <h1>DOM CharacterDataChanged Example</h1>
+  <p id="target-element">Original Text Content</p>
+  <button id="change-button">Change Text Content</button>
 </body>
 </html>
