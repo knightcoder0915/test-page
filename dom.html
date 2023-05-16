@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Text Node Example</title>
+  <title>Date Selection</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $("#departure-date").datepicker();
+      $("#return-date").datepicker();
+    });
+  </script>
+  <style>
+    .datepicker {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>This is a Heading</h1>
-  <p>This is a paragraph with <strong>strong</strong> and <em>emphasized</em> text.</p>
-  <script>
-    // Access the text node within the paragraph
-    const paragraph = document.querySelector('p');
-    const textNode = paragraph.firstChild;
-
-    // Modify the text content of the text node
-    textNode.textContent = 'Updated text content';
-  </script>
+  <h1>Travel Date Selection</h1>
+  
+  <form>
+    <label for="departure-date">Departure Date:</label>
+    <input type="text" id="departure-date" name="departure-date">
+    
+    <label for="return-date">Return Date:</label>
+    <input type="text" id="return-date" name="return-date">
+    
+    <input type="submit" value="Search">
+  </form>
 </body>
 </html>
