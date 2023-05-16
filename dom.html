@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DOM CharacterDataChanged Example</title>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const targetElement = document.getElementById('target-element');
-
-      // Function to handle button click
-      const handleClick = () => {
-        targetElement.textContent = 'New Text Content';
-      };
-
-      // Attach click event listener to the button
-      const button = document.getElementById('change-button');
-      button.addEventListener('click', handleClick);
-    });
-  </script>
+  <title>Text Node Example</title>
 </head>
 <body>
-  <h1>DOM CharacterDataChanged Example</h1>
-  <p id="target-element">Original Text Content</p>
-  <button id="change-button">Change Text Content</button>
+  <h1>This is a Heading</h1>
+  <p>This is a paragraph with <strong>strong</strong> and <em>emphasized</em> text.</p>
+  <script>
+    // Access the text node within the paragraph
+    const paragraph = document.querySelector('p');
+    const textNode = paragraph.firstChild;
+
+    // Modify the text content of the text node
+    textNode.textContent = 'Updated text content';
+  </script>
 </body>
 </html>
