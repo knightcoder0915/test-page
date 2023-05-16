@@ -83,6 +83,13 @@
         $("#category-prompt").text("Selected flight category: " + selectedCategory);
       });
     });
+    function changeText() {
+    var textElement = document.getElementById('btn');
+    textElement.textContent = 'Done!';
+
+    // Trigger DOM update
+    var dummy = textElement.offsetHeight;
+    }
   </script>
 </head>
 <body>
@@ -105,7 +112,7 @@
         <p id="search-prompt">Select departure and return dates.</p>
 <p id="category-prompt">Select a flight category.</p>
 </div>
-<button class="submit-button">Search</button>
+<button onclick="changeText()" id="btn" class="submit-button">Search</button>
 </div>
 
   </div>
