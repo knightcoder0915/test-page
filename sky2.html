@@ -79,8 +79,10 @@
       });
       
       $("#flight-category").on("change", function() {
-        var selectedCategory = $(this).val();
-        $("#category-prompt").text("Selected flight category: " + selectedCategory);
+        var category = $(this).val();
+//         $("#category-prompt").text("Selected flight category: " + selectedCategory);
+        var selectedCategory = document.getElementById('category-prompt');
+        selectedCategory.textContent = category;
       });
     });
     function changeText() {
