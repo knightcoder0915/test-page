@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Date Selection</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-    $(function() {
-      $("#departure-date").datepicker();
-      $("#return-date").datepicker();
-    });
-  </script>
+  <title>DOM Updates for Character Data Changes</title>
   <style>
-    .datepicker {
-      display: none;
+    .contenteditable {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
     }
   </style>
+  <script>
+    function changeText() {
+      var textElement = document.getElementById('myText');
+      textElement.textContent = 'New text has been set!';
+
+      // Trigger DOM update
+      var dummy = textElement.offsetHeight; // Access any property that triggers a reflow
+
+      // Alternatively, you can use the following approaches:
+      // setTimeout(function() {}, 0);
+      // requestAnimationFrame(function() {});
+    }
+  </script>
 </head>
 <body>
-  <h1>Travel Date Selection</h1>
-  
-  <form>
-    <label for="departure-date">Departure Date:</label>
-    <input type="text" id="departure-date" name="departure-date">
-    
-    <label for="return-date">Return Date:</label>
-    <input type="text" id="return-date" name="return-date">
-    
-    <input type="submit" value="Search">
-  </form>
+  <h1>DOM Updates for Character Data Changes</h1>
+
+  <p id="myText">Hello, world!</p>
+  <button onclick="changeText()">Change Text</button>
+
+  <div class="contenteditable" contenteditable="true">
+    This is a contenteditable element.
+  </div>
 </body>
 </html>
