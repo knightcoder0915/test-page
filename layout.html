@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rectangle Movement</title>
+  <style>
+    #rectangle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: all 0.5s ease;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const rectangle = document.getElementById("rectangle");
+      let x = 0;
+      let y = 0;
+      let width = 100;
+      let height = 100;
+
+      function updateRectangle() {
+        rectangle.style.transform = `translate(${x}px, ${y}px)`;
+        rectangle.style.width = `${width}px`;
+        rectangle.style.height = `${height}px`;
+
+        console.log("DOM updated:", {
+          x: x,
+          y: y,
+          width: width,
+          height: height
+        });
+      }
+
+      function moveRectangle() {
+        x += 10;
+        y += 10;
+
+        updateRectangle();
+
+        if (x < window.innerWidth - width && y < window.innerHeight - height) {
+          setTimeout(moveRectangle, 1000);
+        }
+      }
+
+      moveRectangle();
+    });
+  </script>
+</head>
+<body>
+  <div id="rectangle"></div>
+</body>
+</html>
