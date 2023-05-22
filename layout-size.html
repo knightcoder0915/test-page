@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #rectangle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: width 1s, height 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="rectangle"></div>
+
+    <script>
+        var rectangle = document.getElementById("rectangle");
+        var width = 100;
+        var height = 100;
+
+        function increaseSize() {
+            width += 10;
+            height += 10;
+            rectangle.style.width = width + "px";
+            rectangle.style.height = height + "px";
+        }
+
+        setInterval(increaseSize, 1000);
+    </script>
+</body>
+</html>
