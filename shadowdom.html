@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #my-element {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="my-element"></div>
+
+    <script>
+      // Create the shadow root
+	  console.log("---------------Here------");
+      const myElement = document.getElementById('my-element');
+	  console.log("---------------Here------",myElement);
+      const shadowRoot = myElement.attachShadow({ mode: 'open' });
+
+      // Initial content of the shadow root
+      shadowRoot.innerHTML = '<h1>Hello, Shadow DOM!</h1>';
+
+      // Update the content of the shadow root after it is attached
+      setTimeout(() => {
+	  	  console.log("---------------Here-----inside timeout-");
+        shadowRoot.innerHTML = '<h1>Updated Content!</h1><p>New content added.</p>';
+      }, 2000);
+	  console.log("---------------Here-----end-");
+	  window.addEventListener('DOMContentLoaded',()=>{console.log("---------------Here-----DOMContentLoaded fired-");})
+    </script>
+  </body>
+</html>
