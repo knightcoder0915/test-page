@@ -1,33 +1,77 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
   <title>Dynamic Node Manipulation</title>
+
 </head>
+
 <body>
+
   <div id="parent">
-    <div id="child1">Child 1</div>
-    <div id="child2">Child 2</div>
+
+    <h1 id="child1">Child 1</h1>
+
+    <h2 id="child2">Child 2</h2>
+
     <button id="addButton">Add Child</button>
+
   </div>
-	<div id="parent2" style="transform:translate(600px,600px)">
-	
-	</div>
+
+  <h5>check div</h5>
 
   <script>
+
     function addChild() {
+
       // Create a new child element
+
       var newChild = document.createElement("div");
+
       newChild.textContent = "New Child";
-	  newChild.id = "new";
+
+      newChild.id = "new";
+
       // Add the new child on top of existing children
-      var parent = document.getElementById("child2");
+
+      var parent = document.getElementById("parent");
+
       parent.insertBefore(newChild, parent.firstChild);
+
+
+
 
     }
 
+
+
+
     // Attach event listener to the button
+
     var addButton = document.getElementById("addButton");
+
     addButton.addEventListener("click", addChild);
+
+
+
+
+    window.addEventListener("DOMContentLoaded",()=>{
+
+        setTimeout(()=>{
+
+                addChild();
+
+            },5000);
+
+    });
+
   </script>
+
 </body>
+
 </html>
+
+has context menu
+Compose
