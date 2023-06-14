@@ -1,25 +1,19 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Cookie Viewer</title>
+    <title>Request Cookie Viewer</title>
     <script>
-        function displayCookies() {
-            var cookiesDiv = document.getElementById("cookies");
-            cookiesDiv.innerHTML = document.cookie;
+        function displayRequestCookies() {
+            var requestCookies = document.cookie;
+            document.getElementById("request-cookies").innerText = requestCookies;
         }
 
-        // Listen for changes in document.cookie property
-        Object.defineProperty(document, 'cookie', {
-            get: function() { return this._cookie; },
-            set: function(value) {
-                this._cookie = value;
-                displayCookies(); // Call the display function whenever cookie is set
-            }
-        });
+        // Call the display function when the page loads
+        window.onload = displayRequestCookies;
     </script>
 </head>
 <body>
-    <h1>Cookie Viewer</h1>
-    <div id="cookies"></div>
+    <h1>Request Cookie Viewer</h1>
+    <p>Cookies sent with the request:</p>
+    <pre id="request-cookies"></pre>
 </body>
 </html>
