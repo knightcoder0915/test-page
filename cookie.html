@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Viewer</title>
+    <script>
+        function displayCookies() {
+            var cookiesDiv = document.getElementById("cookies");
+            cookiesDiv.innerHTML = document.cookie;
+        }
+
+        // Listen for changes in document.cookie property
+        Object.defineProperty(document, 'cookie', {
+            get: function() { return this._cookie; },
+            set: function(value) {
+                this._cookie = value;
+                displayCookies(); // Call the display function whenever cookie is set
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Cookie Viewer</h1>
+    <div id="cookies"></div>
+</body>
+</html>
