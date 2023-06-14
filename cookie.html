@@ -1,19 +1,36 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Request Cookie Viewer</title>
-    <script>
-        function displayRequestCookies() {
-            var requestCookies = document.cookie;
-            document.getElementById("request-cookies").innerText = requestCookies;
+  <title>Request Logger</title>
+  <script>
+    // Function to log the requests, display cookies, and check for a specific cookie
+    function logRequests(cookieName) {
+      // Override the open method of XMLHttpRequest
+      var originalOpen = XMLHttpRequest.prototype.open;
+
+      XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
+        console.log('Request:', method, url);
+
+        // Check if the request contains any cookies
+        var cookies = this.getResponseHeader('Set-Cookie');
+        if (cookies) {
+          console.log('Cookies:', cookies);
+          
+          // Check if the specific cookie is present
+          if (cookieName && cookies.includes(cookieName)) {
+            console.log('Cookie', cookieName, 'is present.');
+          }
         }
 
-        // Call the display function when the page loads
-        window.onload = displayRequestCookies;
-    </script>
+        return originalOpen.apply(this, arguments);
+      };
+    }
+
+    // Call the logRequests function to start logging requests and check for a specific cookie
+    logRequests('name');
+  </script>
 </head>
 <body>
-    <h1>Request Cookie Viewer</h1>
-    <p>Cookies sent with the request:</p>
-    <pre id="request-cookies"></pre>
+  <!-- Your webpage content goes here -->
 </body>
 </html>
