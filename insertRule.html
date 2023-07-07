@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert StyleSheet Rule Example</title>
+    <style id="myStyle"></style>
+</head>
+<body>
+    <h1>Insert StyleSheet Rule Example</h1>
+
+    <button onclick="addStyleRule()">Add Style Rule</button>
+
+    <script>
+        function addStyleRule() {
+            var styleSheet = document.getElementById("myStyle").sheet;
+
+            if (styleSheet.insertRule) {
+                // Modern browsers
+                styleSheet.insertRule("body { background-color: yellow; }", 0);
+            } else if (styleSheet.addRule) {
+                // IE 8 and below
+                styleSheet.addRule("body", "background-color: yellow;", 0);
+            }
+        }
+    </script>
+</body>
+</html>
