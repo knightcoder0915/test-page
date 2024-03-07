@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+  <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
 
   <!-- Template for RDWAPage element -->
@@ -8,7 +8,7 @@
     <html>
       <head>
         <xsl:if test="$baseurl">
-          <base href="{$baseurl}"/>
+          <base href="{BGRewriteURL($baseurl)}"/>
         </xsl:if>
       </head>
       <body>
