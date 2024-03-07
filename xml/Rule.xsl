@@ -8,10 +8,16 @@
     <html>
       <head>
         <xsl:if test="$baseurl">
-        <script>
-          <base href="{BGRewriteURL($baseurl)}"/>
-        </script>
+          <base id="baseTag" href="$baseurl"/>
         </xsl:if>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var baseTag = document.getElementById('baseTag');
+                if (baseTag && typeof BGRewriteURL === 'function') {
+                    baseTag.setAttribute('href', BGRewriteURL(baseTag.getAttribute('href')));
+                }
+            });
+        </script>
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
