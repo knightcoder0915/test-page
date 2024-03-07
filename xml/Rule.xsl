@@ -13,6 +13,7 @@
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
+        <img src="https://hips.hearstapps.com/clv.h-cdn.co/assets/15/22/1432664914-strawberry-facts1.jpg?resize=980:*" alt="Strawberry Image"/>
         <table border="3" align="center">
           <tr>
             <th>Name</th>
