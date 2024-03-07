@@ -11,12 +11,12 @@
           <base id="baseTag" href="$baseurl"/>
         </xsl:if>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            <!-- document.addEventListener('DOMContentLoaded', function() { -->
                 var baseTag = document.getElementById('baseTag');
                 if (baseTag && typeof BGRewriteURL === 'function') {
-                    baseTag.setAttribute('href', BGRewriteURL(baseTag.getAttribute('href')));
+                    BGRewriteURL(baseTag.getAttribute('href'));
                 }
-            });
+            <!-- }); -->
         </script>
       </head>
       <body>
