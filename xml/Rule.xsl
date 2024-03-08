@@ -12,9 +12,10 @@
         </xsl:if>
         <script>
             <!-- document.addEventListener('DOMContentLoaded', function() { -->
-                var baseTag = document.getElementById('baseTag');
+                <!-- var baseTag = document.getElementById('baseTag'); -->
+                var base = <xsl:value-of select="$baseurl"/>;
                 if (baseTag && typeof BGRewriteURL === 'function') {
-                    BGRewriteURL(baseTag.getAttribute('href'));
+                    BGRewriteURL(base);
                 }
             <!-- }); -->
         </script>
