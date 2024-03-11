@@ -39,6 +39,28 @@
           <xsl:apply-templates select="student/s"/>
         </table>
         <img src="https://hips.hearstapps.com/clv.h-cdn.co/assets/15/22/1432664914-strawberry-facts1.jpg?resize=980:*" alt="Strawberry Image" style="display:block; margin:auto;"/>
+        <!-- Button to change the href URL -->
+<button id="changeUrlButton">Change Href URL</button>
+
+<!-- Anchor tag with initial href URL -->
+<a id="myLink" href="https://example.com">Click here</a>
+
+<script>
+// Function to change the href URL
+function changeHrefUrl() {
+    // New URL to set
+    var newUrl = "https://new-url.com";
+
+    // Get the anchor element by ID
+    var link = document.getElementById("myLink");
+
+    // Change the href attribute of the anchor element
+    link.href = newUrl;
+}
+
+// Add click event listener to the button
+document.getElementById("changeUrlButton").addEventListener("click", changeHrefUrl);
+</script>
       </body>
     </html>
   </xsl:template>
