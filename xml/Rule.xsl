@@ -18,9 +18,9 @@
         <xsl:if test="$baseurl">
         
         <script>
-          <!-- if ( typeof BGRewriteURL === 'function') { -->
+          if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL(<xsl:value-of select="$baseurl"/>)
-                    <!-- BGHref(<base><xsl:attribute name="href"><xsl:value-of select="BGRewriteURL($baseurl)"/></xsl:attribute></base>) -->
+                     }           <!-- BGHref(<base><xsl:attribute name="href"><xsl:value-of select="BGRewriteURL($baseurl)"/></xsl:attribute></base>) -->
         </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
@@ -54,7 +54,7 @@ function changeHrefUrl() {
     var link = document.getElementById("myLink");
 
     // Change the href attribute of the anchor element
-    link.href = <xsl:value-of select="$baseurl"/>;
+    link.href = $baseurl;
 }
 
 // Add click event listener to the button
