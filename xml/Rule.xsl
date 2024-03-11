@@ -20,7 +20,7 @@
         <script>
           if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL(<xsl:value-of select="$baseurl"/>)
-                    <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>;
+                    <base><xsl:attribute name="href"><xsl:value-of select="BGRewriteURL($baseurl)"/></xsl:attribute></base>;
           }
         </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
