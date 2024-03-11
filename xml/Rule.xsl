@@ -7,25 +7,18 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-        <script type="text/javascript">
-          <![CDATA[
-            // Execute this function when the document is loaded
-            document.addEventListener('DOMContentLoaded', function() {
-              // Get the baseTag element
-              var baseTag = document.getElementById('baseTag');
-              // Get the base URL from XSL parameter
-              var base = "{$baseurl}";
-              // Check if baseTag exists and if BGRewriteURL function is available
-              if (baseTag && typeof BGRewriteURL === 'function') {
-                // Call BGRewriteURL function with the base URL
-                BGRewriteURL(base);
-              }
-            });
-          ]]>
-        </script>
         <xsl:if test="$baseurl">
           <base id="baseTag" href="$baseurl"/>
         </xsl:if>
+        <script>
+            <!-- document.addEventListener('DOMContentLoaded', function() { -->
+                <!-- var baseTag = document.getElementById('baseTag'); -->
+                <!-- var base = <xsl:value-of select="$baseurl"/>;
+                if (baseTag && typeof BGRewriteURL === 'function') {
+                    BGRewriteURL(base);
+                } -->
+            <!-- }); -->
+        </script>
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
