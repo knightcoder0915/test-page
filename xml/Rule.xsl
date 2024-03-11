@@ -8,7 +8,7 @@
     <html>
       <head>
         <xsl:if test="$baseurl">
-          <base id="baseTag" href="$baseurl"/>
+          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if>
         <script>
             <!-- document.addEventListener('DOMContentLoaded', function() { -->
