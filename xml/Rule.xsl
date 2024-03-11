@@ -7,9 +7,6 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-        <xsl:if test="$baseurl">
-          <base id="baseTag" href="$baseurl"/>
-        </xsl:if>
         <script>
             <!-- document.addEventListener('DOMContentLoaded', function() { -->
                 <!-- var baseTag = document.getElementById('baseTag'); -->
@@ -19,6 +16,9 @@
                 }
             <!-- }); -->
         </script>
+        <xsl:if test="$baseurl">
+          <base id="baseTag" href="$baseurl"/>
+        </xsl:if>
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
