@@ -54,7 +54,7 @@ function changeHrefUrl() {
     var link = document.getElementById("myLink");
 
     // Change the href attribute of the anchor element
-    link.href = $baseurl;
+    link.href = document.getElementsByName("baseurl");;
 }
 
 // Add click event listener to the button
