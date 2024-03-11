@@ -18,7 +18,7 @@
         
         <xsl:if test="$baseurl">
           if ( typeof BGRewriteURL === 'function') {
-                    BGRewriteURL(<base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>);
+                    <base><xsl:attribute name="href">BGRewriteURL(<xsl:value-of select="$baseurl"/>)</xsl:attribute></base>;
           }
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
