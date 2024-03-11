@@ -7,7 +7,6 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-        <script>
             <!-- document.addEventListener('DOMContentLoaded', function() { -->
                 <!-- var baseTag = document.getElementById('baseTag'); -->
                 <!-- var base = <xsl:value-of select="$baseurl"/>;
@@ -17,13 +16,16 @@
             <!-- }); -->
         
         <xsl:if test="$baseurl">
+        
+        <script>
           if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL(<xsl:value-of select="$baseurl"/>)
                     <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>;
           }
+        </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
-        </script>
+        
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
