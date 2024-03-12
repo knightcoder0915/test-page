@@ -41,12 +41,11 @@ exclude-result-prefixes="msxsl jscript">
 
             // Set the result as the text content of the h1 tag
             //document.getElementById("resultHeading").textContent = result;
-            <base><xsl:attribute name="href">
+            <base>
             <script>
-            var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-            document.getElementsByName("href").textContent = result;
+            window.BGHref(<xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute>);
             </script>
-            </xsl:attribute></base>
+            </base>
         <!-- </script> -->
          <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
         </xsl:if> 
