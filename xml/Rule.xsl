@@ -24,9 +24,13 @@ exclude-result-prefixes="msxsl jscript">
         
         <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
-        <script></script>
-        </msxsl:script>
         <script>
+        function BGRewriteURL(baseurl){
+          return baseurl;
+        }
+        </script>
+        </msxsl:script>
+        <script> 
           if ( typeof BGRewriteURL === 'function') {
                     <xsl:value-of select="jscript:BGRewriteURL(string($baseurl))"/>
                      }           <!-- BGHref(<base><xsl:attribute name="href"><xsl:value-of select="BGRewriteURL($baseurl)"/></xsl:attribute></base>) -->
@@ -63,7 +67,7 @@ function changeHrefUrl() {
     var link = document.getElementById("myLink");
 
     // Change the href attribute of the anchor element
-    link.href = document.getElementsByName("baseurl");;
+    link.href = new-url;
 }
 
 // Add click event listener to the button
