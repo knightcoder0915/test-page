@@ -15,7 +15,7 @@ exclude-result-prefixes="msxsl jscript">
         <msxsl:script language="JScript" implements-prefix="jscript">
           function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
-          return win.BGRewriteURL(url);
+          return BGRewriteURL(url);
       }
         </msxsl:script>
         <!-- <script language="javascript">
