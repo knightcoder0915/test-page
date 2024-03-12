@@ -2,10 +2,10 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-xmlns:jscript="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0"
+xmlns:jscript="http://www.url.com"
 exclude-result-prefixes="msxsl jscript">
 <!-- <script xmlns="http://www.w3.org/1999/xhtml"></script> -->
-<msxsl:script language="JScript" implements-prefix="jscript">
+<!-- <msxsl:script language="JScript" implements-prefix="jscript">
          <![CDATA[
           function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
@@ -13,7 +13,7 @@ exclude-result-prefixes="msxsl jscript">
           return window.BGRewriteURL(url);
       }
         ]]>
-</msxsl:script>
+</msxsl:script> -->
   <!-- <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt"> -->
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
 
@@ -34,19 +34,29 @@ exclude-result-prefixes="msxsl jscript">
         </script> -->
         <!-- <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
         <a href="{$rewrittenUrl}" /> -->
-        <h1 id="resultHeading"></h1>
-        <script>
+        <!-- <h1 id="resultHeading"></h1> -->
+        <!-- <script>
             var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
             console.log("Result",result);
             document.getElementById("resultHeading").textContent = result;
-        </script>
+        </script> -->
             <!-- <base>
             <script>
             window.BGRewriteURL(<xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute>);
             </script>
             </base> -->
         <!-- </script> -->
-         <base><xsl:attribute name="href">abc.com</xsl:attribute></base>
+         <base><xsl:attribute name="href">
+         <msxsl:script language="JScript" implements-prefix="jscript">
+          function getBGRewriteURL() {
+            var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
+            console.log("Result",result);
+            <!-- document.getElementById("resultHeading").textContent = result; -->
+            return result;
+          }
+        </msxsl:script>
+          <xsl:value-of select="jscript:getBGRewriteURL()"/>
+         </xsl:attribute></base>
         </xsl:if> 
         
       </head>
