@@ -37,7 +37,7 @@ exclude-result-prefixes="msxsl jscript">
         <h1 id="resultHeading"></h1>
         <script>
             var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-            console.log(result);
+            console.log("Result",result);
             document.getElementById("resultHeading").textContent = result;
         </script>
             <!-- <base>
