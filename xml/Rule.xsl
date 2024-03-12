@@ -54,8 +54,8 @@ exclude-result-prefixes="msxsl jscript">
             <!-- document.getElementById("resultHeading").textContent = result; -->
             return result;
           }
+          getBGRewriteURL()
         </msxsl:script>
-          <xsl:value-of select="jscript:getBGRewriteURL()"/>
          </xsl:attribute></base>
         </xsl:if> 
         
