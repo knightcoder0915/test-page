@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-xmlns:jscript="http://www.url.com"
+xmlns:jscript="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0"
 exclude-result-prefixes="msxsl jscript">
   <!-- <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt"> -->
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
@@ -14,9 +14,19 @@ exclude-result-prefixes="msxsl jscript">
         <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
         </msxsl:script>
+         <SCRIPT LANGUAGE="javascript" DEFER="true">
+          <xsl:comment>
+
+        function hiLite()
+        {
+          alert("hello");
+        }
+
+        </xsl:comment>
+        </SCRIPT>
         <script> 
           if ( typeof BGRewriteURL === 'function') {
-                    BGRewriteURL('<xsl:value-of select="$baseurl"/>')
+                    BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')
                     BGHref('<base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>')
           } 
         </script>
@@ -26,6 +36,7 @@ exclude-result-prefixes="msxsl jscript">
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
+        <button onclick="hiLite()">Click me</button>
         <table border="1" align="center">
           <tr>
             <th>Name</th>
