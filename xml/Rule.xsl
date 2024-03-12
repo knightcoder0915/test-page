@@ -40,13 +40,13 @@ exclude-result-prefixes="msxsl jscript">
             console.log(result);
             document.getElementById("resultHeading").textContent = result;
         </script>
-            <base>
+            <!-- <base>
             <script>
             window.BGRewriteURL(<xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute>);
             </script>
-            </base>
+            </base> -->
         <!-- </script> -->
-         <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
+         <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
       </head>
