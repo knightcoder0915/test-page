@@ -37,11 +37,11 @@ exclude-result-prefixes="msxsl jscript">
         <h1 id="resultHeading"></h1>
         <script>
             // Execute the BGRewriteURL function and get the result
-            var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
+            //var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
 
             // Set the result as the text content of the h1 tag
-            document.getElementById("resultHeading").textContent = result;
-            <base><xsl:attribute name="href">window.BGRewriteURL('<xsl:value-of select="$baseurl"/>')</xsl:attribute></base>
+            //document.getElementById("resultHeading").textContent = result;
+            <base><xsl:attribute name="href">window.BGRewriteURL(<xsl:value-of select="$baseurl"/>)</xsl:attribute></base>
         </script>
          <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
         </xsl:if> 
