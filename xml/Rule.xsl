@@ -14,13 +14,13 @@ exclude-result-prefixes="msxsl jscript">
       <head>   
       <script></script>     
         <xsl:if test="$baseurl">
-        <msxsl:script language="JScript" implements-prefix="jscript">
+        <!-- <msxsl:script language="JScript" implements-prefix="jscript">
           function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
-          <!-- alert(window.BGRewriteURL(url)); -->
+         
           return window.BGRewriteURL(url);
       }
-        </msxsl:script>
+        </msxsl:script> -->
         <!-- <script language="javascript">
     <![CDATA[
       function BGRewriteURL(url) {
