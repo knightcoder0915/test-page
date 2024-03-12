@@ -14,29 +14,22 @@ exclude-result-prefixes="msxsl jscript">
         <xsl:if test="$baseurl">
         <!-- <msxsl:script language="JScript" implements-prefix="jscript">
         </msxsl:script> -->
-         <SCRIPT LANGUAGE="javascript" DEFER="true">
-          <xsl:comment>
-
-        function hiLite()
-        {
-          alert("hello");
-        }
-
-        </xsl:comment>
-        </SCRIPT>
-        <script> 
-          if ( typeof BGRewriteURL === 'function') {
-                    BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')
-                    BGHref('<base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>')
-          } 
+        <script language="javascript">
+    <![CDATA[
+      function BGRewriteURL(url) {
+          // Call the BGRewriteURL function from bg_client_rewriting.js
+          return win.BGRewriteURL(url);
+      }
+    ]]>
         </script>
+        <xsl:variable name="rewrittenUrl" select="BGRewriteURL($baseurl)" />
+        <base href="{$rewrittenUrl}" />
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
-        <button onclick="BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')">Click me</button>
         <table border="1" align="center">
           <tr>
             <th>Name</th>
