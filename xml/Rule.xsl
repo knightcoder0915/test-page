@@ -14,15 +14,16 @@ exclude-result-prefixes="msxsl jscript">
         <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
         <script>
-        function BGRewriteURL(baseurl){
+        <!-- function BGRewriteURL(baseurl){
           return baseurl;
-        }
+        } -->
+        window.onload = BGRewriteURL;
         </script>
         </msxsl:script>
         <script> 
           if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL('<xsl:value-of select="$baseurl"/>')
-                     } 
+          } 
         </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
