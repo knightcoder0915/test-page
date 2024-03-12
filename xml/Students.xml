@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" type="application/javascript"/>
 <?xml-stylesheet type="text/xsl" href="Rule.xsl"?>
+<script xmlns="http://www.w3.org/1999/xhtml"></script>
 <RDWAPage helpurl="http://go.microsoft.com/fwlink/?LinkId=141038" workspacename="HAL9000" baseurl="https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/">
   <student> 
     <s> 
