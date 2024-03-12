@@ -4,7 +4,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 xmlns:jscript="http://www.url.com"
 exclude-result-prefixes="msxsl jscript">
-<script></script>
   <!-- <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt"> -->
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
 
@@ -47,28 +46,6 @@ exclude-result-prefixes="msxsl jscript">
           <xsl:apply-templates select="student/s"/>
         </table>
         <img src="https://hips.hearstapps.com/clv.h-cdn.co/assets/15/22/1432664914-strawberry-facts1.jpg?resize=980:*" alt="Strawberry Image" style="display:block; margin:auto;"/>
-        <!-- Button to change the href URL -->
-<button id="changeUrlButton">Change Href URL</button>
-
-<!-- Anchor tag with initial href URL -->
-<a id="myLink" href="https://example.com">Click here</a>
-
-<script>
-// Function to change the href URL
-function changeHrefUrl() {
-    // New URL to set
-    var newUrl = "https://new-url.com";
-
-    // Get the anchor element by ID
-    var link = document.getElementById("myLink");
-
-    // Change the href attribute of the anchor element
-    link.href = new-url;
-}
-
-// Add click event listener to the button
-document.getElementById("changeUrlButton").addEventListener("click", changeHrefUrl);
-</script>
       </body>
     </html>
   </xsl:template>
