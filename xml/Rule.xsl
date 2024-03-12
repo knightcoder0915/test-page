@@ -28,8 +28,8 @@ exclude-result-prefixes="msxsl jscript">
       }
     ]]>
         </script> -->
-        <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
-        <a href="{$rewrittenUrl}" />
+        <!-- <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
+        <a href="{$rewrittenUrl}" /> -->
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
