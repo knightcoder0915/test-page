@@ -24,19 +24,19 @@ exclude-result-prefixes="msxsl jscript">
 
         </xsl:comment>
         </SCRIPT>
-        <!-- <script> 
+        <script> 
           if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')
                     BGHref('<base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>')
           } 
-        </script> -->
+        </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
       </head>
       <body>
         <h1 align="center">Students' Basic Details</h1>
-        <button onclick="hiLite()">Click me</button>
+        <button onclick="BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')">Click me</button>
         <table border="1" align="center">
           <tr>
             <th>Name</th>
