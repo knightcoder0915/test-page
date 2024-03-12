@@ -12,17 +12,21 @@ exclude-result-prefixes="msxsl jscript">
     <html>
       <head>        
         <xsl:if test="$baseurl">
-        <!-- <msxsl:script language="JScript" implements-prefix="jscript">
-        </msxsl:script> -->
-        <script language="javascript">
+        <msxsl:script language="JScript" implements-prefix="jscript">
+          function BGRewriteURL(url) {
+          // Call the BGRewriteURL function from bg_client_rewriting.js
+          return win.BGRewriteURL(url);
+      }
+        </msxsl:script>
+        <!-- <script language="javascript">
     <![CDATA[
       function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
           return win.BGRewriteURL(url);
       }
     ]]>
-        </script>
-        <xsl:variable name="rewrittenUrl" select="BGRewriteURL($baseurl)" />
+        </script> -->
+        <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
         <base href="{$rewrittenUrl}" />
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
