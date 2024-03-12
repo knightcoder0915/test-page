@@ -10,14 +10,15 @@ exclude-result-prefixes="msxsl jscript">
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head>        
-        <xsl:if test="$baseurl">
+      <head>   
+      <script></script>     
+        <!-- <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
           function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
           return window.BGRewriteURL(url);
       }
-        </msxsl:script>
+        </msxsl:script> -->
         <!-- <script language="javascript">
     <![CDATA[
       function BGRewriteURL(url) {
@@ -28,11 +29,20 @@ exclude-result-prefixes="msxsl jscript">
         </script> -->
         <!-- <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
         <base href="{$rewrittenUrl}" /> -->
-         <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
-        </xsl:if> 
+         <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+        </xsl:if>  -->
         
       </head>
       <body>
+        <xsl:if test="$baseurl">
+        <msxsl:script language="JScript" implements-prefix="jscript">
+          function BGRewriteURL(url) {
+          // Call the BGRewriteURL function from bg_client_rewriting.js
+          return window.BGRewriteURL(url);
+      }
+        </msxsl:script>
+        <base><xsl:attribute name="href"><xsl:value-of select="jscript:BGRewriteURL($baseurl)"/></xsl:attribute></base>
+        </xsl:if> 
         <h1 align="center">Students' Basic Details</h1>
         <table border="1" align="center">
           <tr>
