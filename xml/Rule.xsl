@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-xmlns:jscript="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0"
+xmlns:jscript="http://www.url.com"
 exclude-result-prefixes="msxsl jscript">
   <!-- <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt"> -->
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
@@ -12,13 +12,13 @@ exclude-result-prefixes="msxsl jscript">
     <html>
       <head>   
       <script></script>     
-        <!-- <xsl:if test="$baseurl">
+        <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
           function BGRewriteURL(url) {
           // Call the BGRewriteURL function from bg_client_rewriting.js
           return window.BGRewriteURL(url);
       }
-        </msxsl:script> -->
+        </msxsl:script>
         <!-- <script language="javascript">
     <![CDATA[
       function BGRewriteURL(url) {
@@ -27,21 +27,13 @@ exclude-result-prefixes="msxsl jscript">
       }
     ]]>
         </script> -->
-        <!-- <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
-        <base href="{$rewrittenUrl}" /> -->
+        <xsl:variable name="rewrittenUrl" select="jscript:BGRewriteURL($baseurl)" />
+        <base href="{$rewrittenUrl}" />
          <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if>  -->
         
       </head>
       <body>
-        <xsl:if test="$baseurl">
-        <msxsl:script language="JScript" implements-prefix="jscript">
-          function BGRewriteURL(url) {
-          // Call the BGRewriteURL function from bg_client_rewriting.js
-          return window.BGRewriteURL(url);
-      }
-        </msxsl:script>
-        <base><xsl:attribute name="href"><xsl:value-of select="jscript:BGRewriteURL($baseurl)"/></xsl:attribute></base>
         </xsl:if> 
         <h1 align="center">Students' Basic Details</h1>
         <table border="1" align="center">
