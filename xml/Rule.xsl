@@ -12,8 +12,8 @@ exclude-result-prefixes="msxsl jscript">
     <html>
       <head>        
         <xsl:if test="$baseurl">
-        <msxsl:script language="JScript" implements-prefix="jscript">
-        </msxsl:script>
+        <!-- <msxsl:script language="JScript" implements-prefix="jscript">
+        </msxsl:script> -->
          <SCRIPT LANGUAGE="javascript" DEFER="true">
           <xsl:comment>
 
@@ -24,12 +24,12 @@ exclude-result-prefixes="msxsl jscript">
 
         </xsl:comment>
         </SCRIPT>
-        <script> 
+        <!-- <script> 
           if ( typeof BGRewriteURL === 'function') {
                     BGRewriteURL('<xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>')
                     BGHref('<base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>')
           } 
-        </script>
+        </script> -->
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
