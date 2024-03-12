@@ -19,12 +19,12 @@ exclude-result-prefixes="msxsl jscript">
         }
         </script>
         </msxsl:script>
-        <!-- <script>  -->
-          <!-- if ( typeof BGRewriteURL === 'function') {
-                    <xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>
-                     }  -->
-        <!-- </script> -->
-         <base><xsl:attribute name="href"><xsl:value-of select="jscript:BGRewriteURL(String{$baseurl})"/></xsl:attribute></base>
+        <script> 
+          if ( typeof BGRewriteURL === 'function') {
+                    BGRewriteURL('<xsl:value-of select="$baseurl"/>')
+                     } 
+        </script>
+         <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
         
       </head>
