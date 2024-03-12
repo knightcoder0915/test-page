@@ -4,7 +4,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 xmlns:jscript="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0"
 exclude-result-prefixes="msxsl jscript">
-<script xmlns="http://www.w3.org/1999/xhtml"></script>
+<!-- <script xmlns="http://www.w3.org/1999/xhtml"></script> -->
+<msxsl:script language="JScript" implements-prefix="jscript">
+         <![CDATA[
+          function BGRewriteURL(url) {
+          // Call the BGRewriteURL function from bg_client_rewriting.js
+         
+          return window.BGRewriteURL(url);
+      }
+        ]]>
+</msxsl:script>
   <!-- <msxsl:script language="JavaScript" src="https://www.bglhs.net/8f02ea19358747a0611683d1b13bee7a/bg_client_rewriting.js?master-0" xmlns:msxsl="urn:schemas-microsoft-com:xslt"> -->
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
 
@@ -14,13 +23,7 @@ exclude-result-prefixes="msxsl jscript">
       <head>   
       <script></script>     
         <xsl:if test="$baseurl">
-        <msxsl:script language="JScript" implements-prefix="jscript">
-          function BGRewriteURL(url) {
-          // Call the BGRewriteURL function from bg_client_rewriting.js
-         
-          return window.BGRewriteURL(url);
-      }
-        </msxsl:script>
+        
         <!-- <script language="javascript">
     <![CDATA[
       function BGRewriteURL(url) {
