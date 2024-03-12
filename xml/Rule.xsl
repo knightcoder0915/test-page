@@ -43,7 +43,7 @@ exclude-result-prefixes="msxsl jscript">
             //document.getElementById("resultHeading").textContent = result;
             <base><xsl:attribute name="href">
             <script>
-            window.BGRewriteURL(<xsl:value-of select="$baseurl"/>)
+            <xsl:value-of select="(msxsl:window.BGRewriteURL($baseurl)"/>
             </script>
             </xsl:attribute></base>
         <!-- </script> -->
