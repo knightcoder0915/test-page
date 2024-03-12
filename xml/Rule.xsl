@@ -44,7 +44,7 @@ exclude-result-prefixes="msxsl jscript">
             <base><xsl:attribute name="href">
             <script>
             var result = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-            result
+            document.getElementsByName("href").textContent = result;
             </script>
             </xsl:attribute></base>
         <!-- </script> -->
