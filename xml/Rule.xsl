@@ -13,15 +13,7 @@ exclude-result-prefixes="msxsl jscript">
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head>
-            <!-- document.addEventListener('DOMContentLoaded', function() { -->
-                <!-- var baseTag = document.getElementById('baseTag'); -->
-                <!-- var base = <xsl:value-of select="$baseurl"/>;
-                if (baseTag && typeof BGRewriteURL === 'function') {
-                    BGRewriteURL(base);
-                } -->
-            <!-- }); -->
-        
+      <head>        
         <xsl:if test="$baseurl">
         <msxsl:script language="JScript" implements-prefix="jscript">
         <script>
@@ -32,8 +24,8 @@ exclude-result-prefixes="msxsl jscript">
         </msxsl:script>
         <script> 
           if ( typeof BGRewriteURL === 'function') {
-                    <xsl:value-of select="jscript:BGRewriteURL(string($baseurl))"/>
-                     }           <!-- BGHref(<base><xsl:attribute name="href"><xsl:value-of select="BGRewriteURL($baseurl)"/></xsl:attribute></base>) -->
+                    <xsl:value-of select="jscript:BGRewriteURL($baseurl)"/>
+                     } 
         </script>
          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if> 
