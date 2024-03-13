@@ -32,7 +32,7 @@ exclude-result-prefixes="msxsl jscript">
           return result;
         }
         </script>
-        <base><xsl:attribute name="href"></xsl:attribute></base>
+        <base><xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="href"></xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
