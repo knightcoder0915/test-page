@@ -46,16 +46,18 @@ exclude-result-prefixes="msxsl jscript">
             </script>
             </base> -->
         <!-- </script> -->
-        <msxsl:script language="JScript" implements-prefix="jscript">
+        <script>
           function getBGRewriteURL() {
             var result = window.BGRewriteURL(<xsl:value-of select="$baseurl"/>);
             console.log("Result",result);
             <!-- document.getElementById("resultHeading").textContent = result; -->
             return result;
           }
-        </msxsl:script>
+        </script>
          <base><xsl:attribute name="href">
-          <xsl:value-of select="jscript:getBGRewriteURL()"/>
+          <script>
+          getBGRewriteURL();
+          </script>
          </xsl:attribute></base>
         </xsl:if> 
         
