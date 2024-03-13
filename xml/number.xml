@@ -1,10 +1,15 @@
-<?xml version='1.0' encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="calc.xsl"?>
-<data>  
-  <circle>  
-    <radius>12</radius>  
-  </circle>  
-  <circle>  
-    <radius>37.5</radius>  
-  </circle>  
-</data>  
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item>
+    <name>Apple</name>
+    <price>1.50</price>
+  </item>
+  <item>
+    <name>Orange</name>
+    <price>2.00</price>
+  </item>
+  <item>
+    <name>Banana</name>
+    <price>1.20</price>
+  </item>
+</data>
