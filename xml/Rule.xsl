@@ -19,7 +19,7 @@ exclude-result-prefixes="msxsl jscript">
             return result;
           }
         </script>
-      <base><xsl:attribute name="href">#{getBGRewriteURL()}/></xsl:attribute></base>
+      <base><xsl:attribute name="href">#{getBGRewriteURL()}</xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
