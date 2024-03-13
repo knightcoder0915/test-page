@@ -26,7 +26,13 @@ exclude-result-prefixes="msxsl jscript">
         <xsl:template name="manipulateUrl">
         <script>
       // Call JavaScript function with the transformed URL
-          window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
+          function getBGRewriteURL() {
+            var result = window.BGRewriteURL(<xsl:value-of select="$baseurl"/>);
+            console.log("Result",result);
+            <!-- document.getElementById("resultHeading").textContent = result; -->
+            return result;
+          }
+          getBGRewriteURL();
         </script>
       </xsl:template>
         
