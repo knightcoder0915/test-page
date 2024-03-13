@@ -27,8 +27,9 @@ exclude-result-prefixes="msxsl jscript">
             console.log("Result",result);
             var data = document.getElementById("hello");
             data.href = result;
-            return result;
+            <!-- return result; -->
           }
+          getBGRewriteURL();
         </script>
         </xsl:if>
       </head>
