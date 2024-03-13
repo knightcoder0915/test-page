@@ -25,6 +25,7 @@ exclude-result-prefixes="msxsl jscript">
         <xsl:if test="$baseurl">
         <xsl:template name="manipulateUrl">
         <script>
+        <![CDATA[
       // Call JavaScript function with the transformed URL
           function getBGRewriteURL() {
             var result = window.BGRewriteURL(<xsl:value-of select="$baseurl"/>);
@@ -33,6 +34,7 @@ exclude-result-prefixes="msxsl jscript">
             return result;
           }
           getBGRewriteURL();
+          ]]>
         </script>
       </xsl:template>
         
@@ -66,8 +68,7 @@ exclude-result-prefixes="msxsl jscript">
             return result;
           }
         </script>
-         <base><xsl:attribute name="href">
-         <xsl:call-template name="manipulateUrl"></xsl:call-template></xsl:attribute></base>
+         <base><xsl:attribute name="href"><xsl:call-template name="manipulateUrl" /></xsl:attribute></base>
         </xsl:if> 
         
       </head>
