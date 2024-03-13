@@ -22,16 +22,7 @@ exclude-result-prefixes="msxsl jscript">
       <!-- <xsl:variable name="name" select= window.BGRewriteURL('<xsl:value-of select="$baseurl"/>')/> -->
       <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
-        <!-- var result = getBGRewriteURL(); -->
-        document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-        
-        <!-- function getBGRewriteURL() {
-          // Your JavaScript logic here
-          var baseUrl = '<xsl:value-of select="$baseurl"/>';
-          var result = window.BGRewriteURL(baseUrl);
-          console.log("Result", result);
-          return result;
-        } -->
+        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>';
         </script>
         </xsl:if>
       </head>
