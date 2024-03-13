@@ -19,7 +19,8 @@ exclude-result-prefixes="msxsl jscript">
             return result;
           }
         </script>
-      <base><xsl:attribute name="href">#{getBGRewriteURL()}</xsl:attribute></base>
+      <xsl:variable name="name" select= window.BGRewriteURL(<xsl:value-of select="$baseurl"/>)>
+      <base><xsl:attribute name="href"><xsl:value-of select="$name"/></xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
