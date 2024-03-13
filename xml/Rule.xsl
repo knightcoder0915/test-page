@@ -20,6 +20,7 @@ exclude-result-prefixes="msxsl jscript">
           }
         </script> -->
       <!-- <xsl:variable name="name" select= window.BGRewriteURL('<xsl:value-of select="$baseurl"/>')/> -->
+      <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
         <!-- var result = getBGRewriteURL(); -->
         document.getElementById("hello").href = getBGRewriteURL();
@@ -32,7 +33,6 @@ exclude-result-prefixes="msxsl jscript">
           return result;
         }
         </script>
-        <base><xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="href"></xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
