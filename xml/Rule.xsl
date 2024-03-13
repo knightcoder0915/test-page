@@ -21,7 +21,7 @@ exclude-result-prefixes="msxsl jscript">
         </script> -->
       <!-- <xsl:variable name="name" select= window.BGRewriteURL('<xsl:value-of select="$baseurl"/>')/> -->
       <script type="text/javascript">
-        var result = getBGRewriteURL();
+        <!-- var result = getBGRewriteURL(); -->
         document.getElementById("hello").href = getBGRewriteURL();
         
         function getBGRewriteURL() {
