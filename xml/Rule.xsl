@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-xmlns:jscript="http://www.url.com"
-exclude-result-prefixes="msxsl jscript">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+                xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
+                xmlns:str="urn:microsoft.com:rdwastrings">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
 
   <!-- Template for RDWAPage element -->
