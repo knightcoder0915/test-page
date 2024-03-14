@@ -10,19 +10,6 @@
       <head>   
       <xsl:if test="$baseurl">
       <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
-      <!-- <script type="text/javascript">
-          function getBGRewriteURL() {
-            var result = window.BGRewriteURL(<xsl:value-of select="$baseurl"/>);
-            console.log("Result",result);
-            
-            return result;
-          }
-        </script> -->
-      <!-- <xsl:variable name="name" select= window.BGRewriteURL('<xsl:value-of select="$baseurl"/>')/> -->
-      <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base> -->
-      <!-- <script type="text/javascript">
-        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>';
-        </script> -->
         </xsl:if>
       </head>
       <body> 
