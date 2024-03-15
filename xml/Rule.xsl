@@ -11,10 +11,12 @@
       <xsl:if test="$baseurl">
       <!-- <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
 
-      <base><xsl:attribute name="id">hello</xsl:attribute></base>
-      <script type="text/javascript">
+      <base><xsl:attribute name="id">hello<script type="text/javascript">
         document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; 
-      </script>
+      </script></xsl:attribute></base>
+      <!-- <script type="text/javascript">
+        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; 
+      </script> -->
         </xsl:if>
       </head>
       <body> 
