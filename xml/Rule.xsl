@@ -9,7 +9,9 @@
     <html>
       <head>
       <script type="text/javascript">
-        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; 
+      window.addEventListener('load', function() {
+        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>';
+      }); 
       </script>  
       <xsl:if test="$baseurl">
       <base><xsl:attribute name="id">hello</xsl:attribute></base>
