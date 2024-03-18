@@ -9,9 +9,11 @@
     <html>
       <head>   
       <xsl:if test="$baseurl">
-      <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
-      
-        </xsl:if>
+      <base><xsl:attribute name="id">hello</xsl:attribute></base>
+      </xsl:if>
+      <script type="text/javascript">
+        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; 
+      </script>
       </head>
       <body> 
         <h1 align="center">Students' Basic Details</h1>
