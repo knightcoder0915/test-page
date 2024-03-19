@@ -9,7 +9,7 @@
     <html>
       <head>   
         <xsl:if test="$baseurl">
-          <base><xsl:attribute name="id">hello</xsl:attribute></base>
+          <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
