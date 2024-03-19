@@ -14,7 +14,7 @@
         });
         </script> 
         <xsl:if test="$baseurl">
-          <base><xsl:attribute name="id">12</xsl:attribute><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+          <base><xsl:attribute name="id">12</xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
