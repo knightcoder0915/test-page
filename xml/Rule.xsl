@@ -7,9 +7,14 @@
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head>   
+      <head>
+        <script>
+        window.addEventListener('load', function() {
+          document.getElementById('12').src = '<xsl:value-of select="$baseurl"/>';
+        });
+        </script> 
         <xsl:if test="$baseurl">
-          <base><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+          <base><xsl:attribute name="id">12</xsl:attribute><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if>
       </head>
       <body> 
