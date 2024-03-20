@@ -7,11 +7,14 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-      <!-- <script type="text/javascript">
+      <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
   // Select all elements with either href or src attribute
   const elementsWithUrls = document.querySelectorAll('[href],[src]');
 
+  function getRewriteURL(url){
+    return window.BGRewriteURL(url);
+  }
   // Function to extract URLs from elements
   function extractUrlsFromElements(elements) {
     const urls = [];
@@ -19,9 +22,13 @@
       const href = element.getAttribute('href');
       const src = element.getAttribute('src');
       if (href) {
+        const newHref = getRewriteUrl(href)
+        element.setAttribute('href', newHref);
         urls.push(href);
       }
       if (src) {
+        const newSrc = getRewriteUrl(newSrc)
+        element.setAttribute('src', newSrc);
         urls.push(src);
       }
     });
@@ -34,7 +41,7 @@
   // Log the extracted URLs to the console
   console.log("Elements with URLs:", urls);
 });
-      </script>    -->
+      </script>
       <xsl:if test="$baseurl">
       <base>
       <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
