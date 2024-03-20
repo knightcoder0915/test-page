@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
@@ -6,15 +7,14 @@
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head> 
+      <head>
+      <!-- <script type="text/javascript">
+        window.addEventListener('load', function() {
+          document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; });
+      </script>    -->
       <xsl:if test="$baseurl">
       <base>
-      <script language="javascript">
-     var getRewriteUrl = function(){
-        return BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-    }
-    <xsl:attribute name="href">getRewriteUrl();</xsl:attribute>
-      </script></base>
+      <xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
