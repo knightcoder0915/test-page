@@ -9,7 +9,7 @@
     <html>
       <head> 
         <xsl:if test="$baseurl">
-          <img><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>
+          <img><xsl:attribute name="src">https://google.com</xsl:attribute></img>
         </xsl:if>
       </head>
       <body> 
