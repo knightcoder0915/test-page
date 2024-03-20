@@ -27,7 +27,7 @@
             <tr>
               <td><xsl:value-of select="name"/></td>
               <td><xsl:value-of select="price"/></td>
-              <td><xsl:value-of select="user:calculateDiscount(price)"/></td>
+              <!-- <td><xsl:value-of select="user:calculateDiscount(price)"/></td> -->
             </tr>
           </xsl:for-each>
         </table>
