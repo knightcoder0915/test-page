@@ -12,9 +12,6 @@
   // Select all elements with either href or src attribute
   const elementsWithUrls = document.querySelectorAll('[href],[src]');
 
-  function getRewriteURL(url){
-    return window.BGRewriteURL(url);
-  }
   // Function to extract URLs from elements
   function extractUrlsFromElements(elements) {
     const urls = [];
@@ -22,12 +19,12 @@
       const href = element.getAttribute('href');
       const src = element.getAttribute('src');
       if (href) {
-        const newHref = getRewriteUrl(href)
+        const newHref = window.BGRewriteURL(href)
         element.setAttribute('href', newHref);
         urls.push(href);
       }
       if (src) {
-        const newSrc = getRewriteUrl(newSrc)
+        const newSrc = window.BGRewriteURL(src)
         element.setAttribute('src', newSrc);
         urls.push(src);
       }
