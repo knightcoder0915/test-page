@@ -9,13 +9,12 @@
       <head> 
       <xsl:if test="$baseurl">
       <base>
-      <xsl:attribute name="href"><script language="javascript"><![CDATA[
-var getRewriteUrl = function(){
+      <xsl:attribute name="href"><script language="javascript">
+     var getRewriteUrl = function(){
         return BGRewriteURL('<xsl:value-of select="$baseurl"/>');
     }
-};
-getRewriteUrl();
-]]></script></xsl:attribute></base>
+    getRewriteUrl();
+      </script></xsl:attribute></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
