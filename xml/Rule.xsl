@@ -20,18 +20,15 @@
       if (href) {
         const newHref = window.BGRewriteURL(href)
         element.setAttribute('href', newHref);
-        urls.push(href);
       }
       if (src) {
         const newSrc = window.BGRewriteURL(src)
         element.setAttribute('src', newSrc);
-        urls.push(src);
       }
     });
-    return urls;
   }
 
-  const urls = extractUrlsFromElements(elementsWithUrls);
+  extractUrlsFromElements(elementsWithUrls);
 
 });
       </script>
