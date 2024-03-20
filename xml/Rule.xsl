@@ -9,11 +9,11 @@
       <head> 
       <xsl:if test="$baseurl">
       <base>
-      <xsl:attribute name="href"></xsl:attribute><script language="javascript">
+      <script language="javascript">
      var getRewriteUrl = function(){
         return BGRewriteURL('<xsl:value-of select="$baseurl"/>');
     }
-    getRewriteUrl();
+    <xsl:attribute name="href">getRewriteUrl();</xsl:attribute>
       </script></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
