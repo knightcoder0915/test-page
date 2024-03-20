@@ -11,6 +11,9 @@
        function getBGRewrite(){
         BGRewriteURL('<xsl:value-of select="$baseurl"/>');
        }
+       $(document).ready(function(){
+       getBGRewrite();
+      });
       </script>   
       <xsl:if test="$baseurl">
       <base>
