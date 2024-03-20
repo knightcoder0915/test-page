@@ -12,7 +12,6 @@
   // Select all elements with either href or src attribute
   const elementsWithUrls = document.querySelectorAll('[href],[src]');
 
-  // Function to extract URLs from elements
   function extractUrlsFromElements(elements) {
     const urls = [];
     elements.forEach(element => {
@@ -32,11 +31,8 @@
     return urls;
   }
 
-  // Extract URLs from elements
   const urls = extractUrlsFromElements(elementsWithUrls);
 
-  // Log the extracted URLs to the console
-  console.log("Elements with URLs:", urls);
 });
       </script>
       <xsl:if test="$baseurl">
