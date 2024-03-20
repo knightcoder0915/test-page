@@ -8,7 +8,7 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
   // Select all elements with either href or src attribute
   const elementsWithUrls = document.querySelectorAll('[href],[src]');
@@ -35,7 +35,7 @@
   // Log the extracted URLs to the console
   console.log("Elements with URLs:", urls);
 });
-      </script>   
+      </script>    -->
       <xsl:if test="$baseurl">
       <base>
       <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
