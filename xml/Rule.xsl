@@ -17,7 +17,7 @@
       </script>   
       <xsl:if test="$baseurl">
       <base>
-      <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <xsl:attribute name="href"><xsl:text><script>BGRewriteURL('<xsl:value-of select="$baseurl"/>');</script></xsl:text></xsl:attribute></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
