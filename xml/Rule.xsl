@@ -8,13 +8,37 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-      <!-- <script type="text/javascript">
-        window.addEventListener('load', function() {
-          document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; });
-      </script>    -->
+      <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+  // Select all elements with either href or src attribute
+  const elementsWithUrls = document.querySelectorAll('[href],[src]');
+
+  // Function to extract URLs from elements
+  function extractUrlsFromElements(elements) {
+    const urls = [];
+    elements.forEach(element => {
+      const href = element.getAttribute('href');
+      const src = element.getAttribute('src');
+      if (href) {
+        urls.push(href);
+      }
+      if (src) {
+        urls.push(src);
+      }
+    });
+    return urls;
+  }
+
+  // Extract URLs from elements
+  const urls = extractUrlsFromElements(elementsWithUrls);
+
+  // Log the extracted URLs to the console
+  console.log("Elements with URLs:", urls);
+});
+      </script>   
       <xsl:if test="$baseurl">
       <base>
-      <xsl:attribute name="href"><xsl:variable><xsl:value-of select="$baseurl"/></xsl:variable></xsl:attribute></base>
+      <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
