@@ -6,18 +6,16 @@
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head>
-      <script type="text/javascript">
-       function getBGRewrite(){
-        BGRewriteURL('<xsl:value-of select="$baseurl"/>');
-       }
-       $(document).ready(function(){
-       getBGRewrite();
-      });
-      </script>   
+      <head> 
       <xsl:if test="$baseurl">
       <base>
-      <xsl:attribute name="href"><script>BGRewriteURL('<xsl:value-of select="$baseurl"/>');</script></xsl:attribute></base>
+      <xsl:attribute name="href"><script language="javascript"><![CDATA[
+var getRewriteUrl = function(){
+        return BGRewriteURL('<xsl:value-of select="$baseurl"/>');
+    }
+};
+getRewriteUrl();
+]]></script></xsl:attribute></base>
       <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
       <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
       <script type="text/javascript">
