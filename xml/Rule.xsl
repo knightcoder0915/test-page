@@ -1,16 +1,27 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
                 xmlns:str="urn:microsoft.com:rdwastrings">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
-
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head> 
-        <xsl:if test="$baseurl">
-        <!-- <img><xsl:attribute name="src">https://google.com</xsl:attribute></img> -->
-          <img><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>
+      <head>
+      <script type="text/javascript">
+       function getBGRewrite(){
+        BGRewriteURL('<xsl:value-of select="$baseurl"/>');
+       }
+      </script>   
+      <xsl:if test="$baseurl">
+      <base>
+      <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <!-- <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base> -->
+      <!-- <base><xsl:attribute name="id">hello</xsl:attribute></base>
+      <script type="text/javascript">
+        document.getElementById("hello").href = '<xsl:value-of select="$baseurl"/>'; 
+      </script> -->
+      
         </xsl:if>
       </head>
       <body> 
@@ -28,7 +39,6 @@
       </body>
     </html>
   </xsl:template>
-
   <!-- Template for student/s element -->
   <xsl:template match="s">
     <tr>
@@ -38,6 +48,4 @@
       <td><xsl:value-of select="city"/></td>
     </tr>
   </xsl:template>
-
 </xsl:stylesheet>
-
