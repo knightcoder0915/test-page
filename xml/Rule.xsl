@@ -8,7 +8,7 @@
   <!-- Template for RDWAPage element -->
   <xsl:function name="foo:compareCI">
     <xsl:param name="string1"/>
-    <xsl:value-of select="concat('window.BGRewriteURL(',$string1,')')"/>
+    <xsl:value-of select="concat('a',$string1)"/>
   </xsl:function>
   <xsl:template match="/RDWAPage">
     <html>
