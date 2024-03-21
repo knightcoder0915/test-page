@@ -11,6 +11,53 @@
       <img>
       <xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>     
         </xsl:if>
+      <script>
+      const elementsWithUrls = document.querySelectorAll('[href],[src]');
+     function extractUrlsFromElements(elements) {
+       elements.forEach(element => {
+         const href = element.getAttribute('href');
+         const src = element.getAttribute('src');
+         if (href) {
+           element.setAttribute('href', href);
+         }
+         if (src) {
+           element.setAttribute('src', src);
+         }
+       });
+     }
+     extractUrlsFromElements(elementsWithUrls);
+      </script>
+      <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+        <link href="tswa.css" rel="stylesheet" type="text/css" />
+              <script>
+      const elementsWithUrls = document.querySelectorAll('[href],[src]');
+     function extractUrlsFromElements(elements) {
+       elements.forEach(element => {
+         const href = element.getAttribute('href');
+         const src = element.getAttribute('src');
+         if (href) {
+           element.setAttribute('href', href);
+         }
+         if (src) {
+           element.setAttribute('src', src);
+         }
+       });
+     }
+     extractUrlsFromElements(elementsWithUrls);
+      </script>
+        <xsl:apply-templates select="Style"/>
+          
+        <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
+        <script language="javascript" type="text/javascript" src='../webscripts-domain.js'/>
+        <script language="javascript" type="text/javascript">
+          var sHelpSource = &quot;<xsl:value-of select="@helpurl"/>&quot;;          
+          <xsl:value-of select="HeaderJS[1]"/>
+          <xsl:if test="$baseurl">
+          strBaseUrl = &quot;<xsl:value-of select="$baseurl"/>&quot;;
+          </xsl:if>
+        </script>
       </head>
       <body> 
         <h1 align="center">Students' Basic Details</h1>
