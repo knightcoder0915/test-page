@@ -4,6 +4,7 @@
                 xmlns:str="urn:microsoft.com:rdwastrings"
                 xmlns:foo="http://whatever">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
+  <script></script>
   <!-- Template for RDWAPage element -->
   <xsl:function name="foo:compareCI">
     <xsl:param name="string1"/>
@@ -14,28 +15,12 @@
       <head>
       <xsl:if test="$baseurl">
       <img>
-      <xsl:attribute name="src"><xsl:value-of select="foo:compareCI(<xsl:value-of select='$baseurl'/>)"/></xsl:attribute></img>     
+      <xsl:attribute name="src"><xsl:value-of select="foo:compareCI('$baseurl')"/></xsl:attribute></img>     
         </xsl:if>
       <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
         <link href="tswa.css" rel="stylesheet" type="text/css" />
-              <script>
-      const elementsWithUrls = document.querySelectorAll('[href],[src]');
-     function extractUrlsFromElements(elements) {
-       elements.forEach(element => {
-         const href = element.getAttribute('href');
-         const src = element.getAttribute('src');
-         if (href) {
-           element.setAttribute('href', href);
-         }
-         if (src) {
-           element.setAttribute('src', src);
-         }
-       });
-     }
-     extractUrlsFromElements(elementsWithUrls);
-      </script>
         <xsl:apply-templates select="Style"/>
           
         <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
