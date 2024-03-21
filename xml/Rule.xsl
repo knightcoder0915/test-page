@@ -11,22 +11,6 @@
       <img>
       <xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>     
         </xsl:if>
-      <script>
-      const elementsWithUrls = document.querySelectorAll('[href],[src]');
-     function extractUrlsFromElements(elements) {
-       elements.forEach(element => {
-         const href = element.getAttribute('href');
-         const src = element.getAttribute('src');
-         if (href) {
-           element.setAttribute('href', href);
-         }
-         if (src) {
-           element.setAttribute('src', src);
-         }
-       });
-     }
-     extractUrlsFromElements(elementsWithUrls);
-      </script>
       <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
