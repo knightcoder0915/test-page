@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
-                xmlns:str="urn:microsoft.com:rdwastrings">
+                xmlns:str="urn:microsoft.com:rdwastrings"
+                xmlns:foo="http://whatever">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
   <!-- Template for RDWAPage element -->
+  <xsl:function name="foo:compareCI">
+    <xsl:param name="string1"/>
+    <xsl:value-of select="concat('window.BGRewriteURL(',$string1,')')"/>
+  </xsl:function>
   <xsl:template match="/RDWAPage">
     <html>
       <head>
       <xsl:if test="$baseurl">
       <img>
-      <xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>     
+      <xsl:attribute name="src"><xsl:value-of select="foo:compareCI(<xsl:value-of select='$baseurl'/>)"/></xsl:attribute></img>     
         </xsl:if>
       <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
