@@ -8,8 +8,8 @@
     <html>
       <head>
       <xsl:if test="$baseurl">
-      <base>
-      <xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>     
+      <img>
+      <xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img>     
         </xsl:if>
       </head>
       <body> 
