@@ -19,7 +19,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
         <link id="22" href="tswa.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
-        document.getElementById("22").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
+        document.getElementById("22").href = window.BGRewriteURL("tswa.css"); 
       </script>
         <xsl:apply-templates select="Style"/>
           
