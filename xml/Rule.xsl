@@ -8,24 +8,23 @@
     <html>
       <head> 
       <xsl:if test="$baseurl">
-      <base>
-      <xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
-      <script type="text/javascript">
+      <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
-      </script>
+      </script> -->
         </xsl:if>
         <title ID="PAGE_TITLE">Testing</title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-        <link id="22" href="tswa.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript">
+        <link href="tswa.css" rel="stylesheet" type="text/css" />
+        <!-- <script type="text/javascript">
         document.getElementById("22").href = window.BGRewriteURL("tswa.css"); 
-      </script>
+      </script> -->
         <xsl:apply-templates select="Style"/>
           
-        <!-- <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
+        <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
         <script language="javascript" type="text/javascript" src='../webscripts-domain.js'/>
-        <script language="javascript" type="text/javascript">
+        <!-- <script language="javascript" type="text/javascript">
           var sHelpSource = &quot;<xsl:value-of select="@helpurl"/>&quot;;          
           <xsl:value-of select="HeaderJS[1]"/>
           <xsl:if test="$baseurl">
