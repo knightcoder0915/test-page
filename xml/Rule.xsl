@@ -14,14 +14,14 @@
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script>
         </xsl:if>
-        <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
+        <!-- <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
         <link id="22" href="tswa.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
         document.getElementById("22").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script>
-        <xsl:apply-templates select="Style"/>
+        <xsl:apply-templates select="Style"/> -->
           
         <!-- <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
         <script language="javascript" type="text/javascript" src='../webscripts-domain.js'/>
