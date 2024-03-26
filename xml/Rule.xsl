@@ -1,38 +1,17 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
                 xmlns:str="urn:microsoft.com:rdwastrings">
-<xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
-  <script></script>
-
+  <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
+  <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
-      <head>
+      <head> 
       <xsl:if test="$baseurl">
-      <img>
-      <xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></img> 
-      <script type="text/javascript">
-        document.getElementById("hello").src = '<xsl:value-of select="$baseurl"/>'; 
-      </script> 
+      <base>
+      <xsl:attribute name="id">hello</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
         </xsl:if>
-      <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
-        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-        <link id="22" href="tswa.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript">
-        document.getElementById("22").href = "tswa.css"; 
-        </script>
-        <xsl:apply-templates select="Style"/>
-          
-        <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
-        <script language="javascript" type="text/javascript" src='../webscripts-domain.js'/>
-        <script language="javascript" type="text/javascript">
-          var sHelpSource = &quot;<xsl:value-of select="@helpurl"/>&quot;;          
-          <xsl:value-of select="HeaderJS[1]"/>
-          <xsl:if test="$baseurl">
-          strBaseUrl = &quot;<xsl:value-of select="$baseurl"/>&quot;;
-          </xsl:if>
-        </script>
       </head>
       <body> 
         <h1 align="center">Students' Basic Details</h1>
