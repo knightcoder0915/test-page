@@ -23,7 +23,7 @@
       </script>
         <xsl:apply-templates select="Style"/>
           
-        <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
+        <!-- <script language="javascript" type="text/javascript" src='../renderscripts.js'/>
         <script language="javascript" type="text/javascript" src='../webscripts-domain.js'/>
         <script language="javascript" type="text/javascript">
           var sHelpSource = &quot;<xsl:value-of select="@helpurl"/>&quot;;          
@@ -31,7 +31,7 @@
           <xsl:if test="$baseurl">
           strBaseUrl = &quot;<xsl:value-of select="$baseurl"/>&quot;;
           </xsl:if>
-        </script>
+        </script> -->
       </head>
       <body> 
         <h1 align="center">Students' Basic Details</h1>
