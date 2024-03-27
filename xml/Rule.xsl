@@ -31,6 +31,7 @@
       </script> 
       <xsl:if test="$baseurl">
       <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/>
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
