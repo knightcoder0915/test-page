@@ -15,28 +15,6 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-      <script type="text/javascript">
-              <!-- document.addEventListener('DOMContentLoaded', function() {
-        // Select all elements with either href or src attribute
-        const elementsWithUrls = document.querySelectorAll('[href],[src]');
-        function extractUrlsFromElements(elements) {
-          const urls = [];
-          elements.forEach(element => {
-            const href = element.getAttribute('href');
-            const src = element.getAttribute('src');
-            if (href) {
-              const newHref = window.BGRewriteURL(href)
-              element.setAttribute('href', newHref);
-            }
-            if (src) {
-              const newSrc = window.BGRewriteURL(src)
-              element.setAttribute('src', newSrc);
-            }
-          });
-        }
-        extractUrlsFromElements(elementsWithUrls);
-      }); -->
-      <!-- </script>  -->
       <xsl:if test="$baseurl">
       <base><xsl:attribute name="href"><xsl:value-of select="replace($baseurl,'.','-')"/></xsl:attribute></base>
       <!-- <script type="text/javascript">
