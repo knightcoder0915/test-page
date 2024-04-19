@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:appfeed="http://schemas.microsoft.com/ts/2007/05/tswf"
-                xmlns:str="urn:microsoft.com:rdwastrings">
+                xmlns:str="http://exslt.org/strings"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
+  
   <xsl:variable name="rdcinstallurl" select="/RDWAPage/AppFeed[1]/@rdcinstallurl"/>
   <xsl:variable name="showpubliccheckbox" select="/RDWAPage/AppFeed[1]/@showpubliccheckbox = 'true'"/>
   <xsl:variable name="showoptimizeexperience" select="/RDWAPage/AppFeed[1]/@showoptimizeexperience = 'true'"/>
@@ -14,8 +16,8 @@
   <xsl:template match="/RDWAPage">
     <html>
       <head>
-      <script type="text/javascript">
-              document.addEventListener('DOMContentLoaded', function() {
+      <!-- <script type="text/javascript"> -->
+              <!-- document.addEventListener('DOMContentLoaded', function() {
         // Select all elements with either href or src attribute
         const elementsWithUrls = document.querySelectorAll('[href],[src]');
         function extractUrlsFromElements(elements) {
@@ -34,10 +36,10 @@
           });
         }
         extractUrlsFromElements(elementsWithUrls);
-      });
-      </script> 
+      }); -->
+      <!-- </script>  -->
       <xsl:if test="$baseurl">
-      <base><xsl:attribute name="href"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <base><xsl:attribute name="href"><xsl:value-of select="str:replace($baseurl,'.','-')"/></xsl:attribute></base>
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
