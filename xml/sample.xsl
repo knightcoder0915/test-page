@@ -4,7 +4,7 @@
 <xsl:template match="/">
 <xsl:for-each select="Content">
 <xsl:for-each select="Summary">
-<!-- <xsl:value-of select=" replace(current(),'&amp;','and')"/> -->
+<xsl:value-of select=" replace(current(),'&amp;','and')"/>
 </xsl:for-each>
 </xsl:for-each>
 </xsl:template>
