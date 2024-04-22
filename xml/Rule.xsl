@@ -23,7 +23,10 @@
                                       'bglhs.net/', 
                                       substring-after(substring-after($baseurl, 'https://'), '/'))"/>
       </xsl:variable>
-      <xsl:value-of select="$modifiedUrl"/>
+      <xsl:value-of select="concat('https://', 
+                                      replace(replace(substring-before(substring-after(https://abc.com, 'https://'), '/'), '-', '--'), '.', '-'), 
+                                      'bglhs.net/', 
+                                      substring-after(substring-after($baseurl, 'https://'), '/'))"/>
       <!-- <base><xsl:attribute name="href"><xsl:value-of select="$modifiedUrl"/></xsl:attribute></base> -->
       <!-- <base href="{$modifiedUrl}"/> -->
       <!-- <script type="text/javascript">
