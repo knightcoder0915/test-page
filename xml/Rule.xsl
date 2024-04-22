@@ -16,13 +16,7 @@
     <html>
       <head>
       <xsl:if test="$baseurl">
-      <xsl:variable name="modifiedUrl">
-        <!-- Construct the modified URL using the concat and replace functions -->
-        <xsl:value-of select="concat('https://', 
-                                      replace(replace(substring-before(substring-after($baseurl, 'https://'), '/'), '-', '--'), '.', '-'), 
-                                      'bglhs.net/', 
-                                      substring-after(substring-after($baseurl, 'https://'), '/'))"/>
-      </xsl:variable>
+
       <xsl:value-of select="concat('https://', 
                                       replace(replace(substring-before(substring-after(https://abc.com, 'https://'), '/'), '-', '--'), '.', '-'), 
                                       'bglhs.net/', 

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0" >
+<xsl:output method="text">
+<xsl:template match="/">
+<xsl:text> The demo of match '</xsl:text>
+<xsl:value-of select="replace('contact me at 321-898-555-7680, hello', '({0-9}{3})-({0-9}{3})-({0-9}{4}}', '$0')"/>
+<xsl:text>' contains a similar ! </xsl:text>
+<xsl:text> The matching with the expression : </xsl:text>
+</template>
