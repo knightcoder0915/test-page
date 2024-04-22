@@ -23,8 +23,9 @@
                                       'bglhs.net/', 
                                       substring-after(substring-after($baseurl, 'https://'), '/'))"/>
       </xsl:variable>
+      <xsl:value-of select="$modifiedUrl"/>
       <!-- <base><xsl:attribute name="href"><xsl:value-of select="$modifiedUrl"/></xsl:attribute></base> -->
-      <base href="{$modifiedUrl}"/>
+      <!-- <base href="{$modifiedUrl}"/> -->
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
