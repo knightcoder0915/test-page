@@ -16,7 +16,14 @@
     <html>
       <head>
       <xsl:if test="$baseurl">
-      <base><xsl:attribute name="href"><xsl:value-of select="replace($baseurl,'.','-')"/></xsl:attribute></base>
+      <xsl:variable name="modifiedUrl">
+        <!-- Construct the modified URL using the concat and replace functions -->
+        <xsl:value-of select="concat('https://', 
+                                      replace(replace(substring-before(substring-after($baseurl, 'https://'), '/'), '-', '--'), '.', '-'), 
+                                      'bglhs.net/', 
+                                      substring-after(substring-after($baseurl, 'https://'), '/'))"/>
+      </xsl:variable>
+      <base><xsl:attribute name="href"><xsl:value-of select="$modifiedUrl"/></xsl:attribute></base>
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
