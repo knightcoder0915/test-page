@@ -4,31 +4,58 @@
                 xmlns:str="urn:microsoft.com:rdwastrings">
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
   
-  <!-- <xsl:variable name="rdcinstallurl" select="/RDWAPage/AppFeed[1]/@rdcinstallurl"/>
+  <xsl:variable name="rdcinstallurl" select="/RDWAPage/AppFeed[1]/@rdcinstallurl"/>
   <xsl:variable name="showpubliccheckbox" select="/RDWAPage/AppFeed[1]/@showpubliccheckbox = 'true'"/>
   <xsl:variable name="showoptimizeexperience" select="/RDWAPage/AppFeed[1]/@showoptimizeexperience = 'true'"/>
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
-  <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/> -->
+  <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/>
   <!-- Template for RDWAPage element -->
+
+  <xsl:template name="string-replace-all">
+  <xsl:param name="text"/>
+  <xsl:param name="replace"/>
+  <xsl:param name="by"/>
+  <xsl:choose>
+    <xsl:when test="contains($text,$replace)">
+      <xsl:value-of select="substring-before($text,$replace)"/>
+      <xsl:value-of select="$by"/>
+      <xsl:call-template name="string-replace-all">
+        <xsl:with-param name="text" select="substring-after($text,$replace)"/>
+        <xsl:with-param name="replace" select="$replace"/>
+        <xsl:with-param name="by" select="$by"/>
+      </xsl:call-template>
+    </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$text" />
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
   <xsl:template match="/RDWAPage">
     <html>
       <head>
       <xsl:if test="$baseurl">
+      <!-- <base><xsl:attribute name="href"><xsl:value-of select="replace($baseurl,'.','-')"/></xsl:attribute></base> -->
+      <base>
+      <xsl:variable name="newtext">
+    <xsl:call-template name="string-replace-all">
+        <xsl:with-param name="text" select="substring-before(substring-after($baseurl,'https://'),'/')" />
+        <xsl:with-param name="replace" select="'-'" />
+        <xsl:with-param name="by" select="'--'" />
+    </xsl:call-template>
+</xsl:variable>
+      <xsl:attribute name="href">
+      <xsl:value-of select="concat('https://',translate($newtext,'.','-'),'.bglhs.net/',substring-after(substring-after($baseurl,'https://'),'/'))"/>
+      <!-- <xsl:value-of select="$baseurl"/> -->
+      </xsl:attribute>
+      </base>
 
-      <xsl:value-of select="concat('https://', 
-                                      replace(replace(substring-before(substring-after(https://abc.com, 'https://'), '/'), '-', '--'), '.', '-'), 
-                                      'bglhs.net/', 
-                                      substring-after(substring-after($baseurl, 'https://'), '/'))"/>
-      <!-- <base><xsl:attribute name="href"><xsl:value-of select="$modifiedUrl"/></xsl:attribute></base> -->
-      <!-- <base href="{$modifiedUrl}"/> -->
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
         </xsl:if>
-        <!-- <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title> -->
-        <title ID="PAGE_TITLE">Testing</title>
+        <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
         <link href="tswa.css" rel="stylesheet" type="text/css" />
