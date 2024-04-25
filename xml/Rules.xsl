@@ -17,7 +17,8 @@
     <html>
       <head>
       <xsl:if test="$baseurl">
-      <base><xsl:attribute name="src">https://hal9000-hello.gruposanjose.biz/RDWeb/Pages/en-US/</xsl:attribute></base>
+      <a href="https://www.w3schools.com">Visit W3Schools</a>
+      <base><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
 
         </xsl:if>
         <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
