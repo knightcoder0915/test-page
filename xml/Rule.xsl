@@ -19,14 +19,14 @@
       <xsl:if test="$baseurl">
       <!-- <base><xsl:attribute name="href"><xsl:value-of select="replace($baseurl,'.','-')"/></xsl:attribute></base> -->
       <base>
+      <xsl:attribute name="href">
       <xsl:variable name="newtext">
     <xsl:call-template name="string-replace-all">
         <xsl:with-param name="text" select="substring-before(substring-after($baseurl,'https://'),'/')" />
         <xsl:with-param name="replace" select="'-'" />
         <xsl:with-param name="by" select="'--'" />
-    </xsl:call-template>
-</xsl:variable>
-      <xsl:attribute name="href">
+      </xsl:call-template>
+    </xsl:variable>
       <xsl:value-of select="concat('https://',translate($newtext,'.','-'),'.bglhs.net/',substring-after(substring-after($baseurl,'https://'),'/'))"/>
       </xsl:attribute>
       </base>
