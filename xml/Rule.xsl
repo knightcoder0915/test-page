@@ -27,7 +27,7 @@
         <xsl:with-param name="by" select="'--'" />
       </xsl:call-template>
     </xsl:variable>
-      <xsl:value-of select="concat('https://',translate($newtext,'.','-'),'.bglhs.net/',substring-after(substring-after($baseurl,'https://'),'/'))"/>
+      <xsl:value-of select="concat('https://',translate(translate($newtext,'.','-'),':','-'),'.bglhs.net/',substring-after(substring-after($baseurl,'https://'),'/'))"/>
       </xsl:attribute>
       </base>
 
