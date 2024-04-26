@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="Rules.xsl"?>
 <?xml-stylesheet type="text/css" href="https://hal9000.gruposanjose.biz/RDWeb/Pages/RenderFail.css"?>
-<RDWAPage helpurl="http://go.microsoft.com/fwlink/?LinkId=141038" workspacename="HAL9000" baseurl="https://hal9000:gruposanjose.biz/RDWeb/Pages/en-US/">
+<RDWAPage helpurl="http://go.microsoft.com/fwlink/?LinkId=141038" workspacename="HAL9000" baseurl="https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/">
   <student> 
     <s> 
       <name>Divyank Singh Sikarwar</name> 

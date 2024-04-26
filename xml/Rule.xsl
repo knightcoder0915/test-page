@@ -35,7 +35,7 @@
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
       </script> -->
         </xsl:if>
-        <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
+        <title ID="PAGE_TITLE"></title>
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
         <meta http-equiv="X-UA-Compatible" content="IE=9"/>
         <link href="tswa.css" rel="stylesheet" type="text/css" />
