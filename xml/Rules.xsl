@@ -11,7 +11,7 @@
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
-  <xsl:variable name="strings" select="document('https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/RDWAStrings.xml')/str:strings/string"/>
+  <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/>
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
