@@ -4,14 +4,20 @@
                 xmlns:str="urn:microsoft.com:rdwastrings">
 
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
-  
+  <xsl:variable name="newtext">
+    <xsl:call-template name="string-replace-all">
+        <xsl:with-param name="text" select="substring-before(substring-after(concat($baseurl,'RDWAStrings.xml'),'https://'),'/')" />
+        <xsl:with-param name="replace" select="'-'" />
+        <xsl:with-param name="by" select="'--'" />
+      </xsl:call-template>
+    </xsl:variable>
   <xsl:variable name="rdcinstallurl" select="/RDWAPage/AppFeed[1]/@rdcinstallurl"/>
   <xsl:variable name="showpubliccheckbox" select="/RDWAPage/AppFeed[1]/@showpubliccheckbox = 'true'"/>
   <xsl:variable name="showoptimizeexperience" select="/RDWAPage/AppFeed[1]/@showoptimizeexperience = 'true'"/>
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
-  <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/>
+  <xsl:variable name="strings" select="document(concat('https://',translate(translate($newtext,'.','-'),':','-'),'.bglhs.net/',substring-after(substring-after(concat($baseurl,'RDWAStrings.xml'),'https://'),'/')))/str:strings/string"/>
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
@@ -78,6 +84,20 @@
       <td><xsl:value-of select="city"/></td>
     </tr>
   </xsl:template>
+
+<xsl:template name="manipulateURL">
+    <xsl:param name="url"/>
+
+    <!-- Manipulate the URL as needed -->
+    <xsl:variable name="modifiedURL">
+        <xsl:value-of select="concat('https://', translate(translate($url, '.', '-'), ':', '-'), '.bglhs.net/', substring-after(substring-after($url, 'https://'), '/'))"/>
+    </xsl:variable>
+
+    <!-- Return the modified URL -->
+    <xsl:value-of select="$modifiedURL"/>
+</xsl:template>
+
+<!-- Use the template to construct the URL for document() function -->
 <xsl:template name="string-replace-all">
   <xsl:param name="text"/>
   <xsl:param name="replace"/>
