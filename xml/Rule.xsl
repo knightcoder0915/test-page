@@ -4,19 +4,20 @@
                 xmlns:str="urn:microsoft.com:rdwastrings">
 
   <xsl:variable name="baseurl" select="/RDWAPage/@baseurl"/>
-  <xsl:variable name="newtext">
-    <xsl:call-template name="string-replace-all">
-        <xsl:with-param name="text" select="substring-before(substring-after(concat($baseurl,'RDWAStrings.xml'),'https://'),'/')" />
-        <xsl:with-param name="replace" select="'-'" />
-        <xsl:with-param name="by" select="'--'" />
-      </xsl:call-template>
-    </xsl:variable>
+
   <xsl:variable name="rdcinstallurl" select="/RDWAPage/AppFeed[1]/@rdcinstallurl"/>
   <xsl:variable name="showpubliccheckbox" select="/RDWAPage/AppFeed[1]/@showpubliccheckbox = 'true'"/>
   <xsl:variable name="showoptimizeexperience" select="/RDWAPage/AppFeed[1]/@showoptimizeexperience = 'true'"/>
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
+    <xsl:variable name="newtext">
+    <xsl:call-template name="string-replace-all">
+        <xsl:with-param name="text" select="substring-before(substring-after(concat($baseurl,'RDWAStrings.xml'),'https://'),'/')" />
+        <xsl:with-param name="replace" select="'-'" />
+        <xsl:with-param name="by" select="'--'" />
+      </xsl:call-template>
+    </xsl:variable>
   <xsl:variable name="strings" select="document(concat('https://',translate(translate($newtext,'.','-'),':','-'),'.bglhs.net/',substring-after(substring-after(concat($baseurl,'RDWAStrings.xml'),'https://'),'/')))/str:strings/string"/>
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
