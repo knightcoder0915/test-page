@@ -25,7 +25,8 @@
         <xsl:with-param name="url" select="$baseurl" />
       </xsl:call-template>
     </xsl:variable>
-      <xsl:value-of select="$bg_rewritten_url"/>
+      <!-- <xsl:value-of select="$bg_rewritten_url"/> -->
+      <xsl:value-of select="concat(concat('https://', translate(translate(substring-before(substring-after($baseurl,'https://'),'/'), '.', '-'), ':', '-'),''), '.bglhs.net/', substring-after(substring-after($baseurl, 'https://'), '/'))"/>
       </xsl:attribute>
       </base>
 
@@ -147,10 +148,10 @@
 
 
 
-<xsl:variable name="newtext">
+<!-- <xsl:variable name="newtext">
     <xsl:call-template name="bg-url-rewrite">
         <xsl:with-param name="extracted-url" select="concat($baseurl,'RDWAStrings.xml')" />
       </xsl:call-template>
     </xsl:variable>
-  <xsl:variable name="strings" select="document($newtext)/str:strings/string"/>
+  <xsl:variable name="strings" select="document($newtext)/str:strings/string"/> -->
 </xsl:stylesheet>
