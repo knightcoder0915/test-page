@@ -11,14 +11,14 @@
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
-  <xsl:variable name="strings" select="document(concat($baseurl,'RDWAStrings.xml'))/str:strings/string"/>
+  <xsl:variable name="strings" select="document('https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/')/str:strings/string"/>
   <!-- Template for RDWAPage element -->
   <xsl:template match="/RDWAPage">
     <html>
       <head>
       <xsl:if test="$baseurl">
-      <a href="https://www.w3schools.com">Visit W3Schools</a>
-      <base><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></base>
+      <a><xsl:attribute name="src"><xsl:value-of select="$baseurl"/></xsl:attribute></a>
+      <base><xsl:attribute name="src">https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/</xsl:attribute></base>
 
         </xsl:if>
         <title ID="PAGE_TITLE"><xsl:value-of select="$strings[@id = 'PageTitle']"/></title>
