@@ -11,6 +11,8 @@
   <xsl:variable name="optimizeexperiencestate" select="/RDWAPage/AppFeed[1]/@optimizeexperiencestate = 'true'"/>
   <xsl:variable name="privatemode" select="/RDWAPage/AppFeed[1]/@privatemode = 'true'"/>
   <xsl:variable name="appfeedcontents" select="/RDWAPage/AppFeed[1]"/>
+  <xsl:variable name="bg_rewritten_url"><xsl:call-template name="bg_rewrite_url"><xsl:with-param name="url" select="concat($baseurl,'RDWAStrings.xml')" /></xsl:call-template></xsl:variable>
+  <xsl:variable name="strings" select="document($bg_rewritten_url)/str:strings/string"/>
   <!-- Template for RDWAPage element -->
   
   <xsl:template match="/RDWAPage">
@@ -22,13 +24,15 @@
       <xsl:attribute name="href">
       <xsl:variable name="bg_rewritten_url">
     <xsl:call-template name="bg_rewrite_url">
-        <xsl:with-param name="url" select="$baseurl" />
+        <xsl:with-param name="url" select="'https://hal9000.gruposanjose.biz/RDWeb/Pages/en-US/'" />
       </xsl:call-template>
     </xsl:variable>
       <!-- <xsl:value-of select="$bg_rewritten_url"/> -->
       <xsl:value-of select="concat(concat('https://', translate(translate(substring-before(substring-after($baseurl,'https://'),'/'), '.', '-'), ':', '-'),''), '.bglhs.net/', substring-after(substring-after($baseurl, 'https://'), '/'))"/>
       </xsl:attribute>
       </base>
+
+      
 
       <!-- <script type="text/javascript">
         document.getElementById("hello").href = window.BGRewriteURL('<xsl:value-of select="$baseurl"/>'); 
@@ -78,74 +82,7 @@
     </tr>
   </xsl:template>
 
-<xsl:template name="manipulateURL">
-    <xsl:param name="url"/>
-
-    <!-- Manipulate the URL as needed -->
-    <xsl:variable name="modifiedURL">
-        <xsl:value-of select="concat('https://', translate(translate($url, '.', '-'), ':', '-'), '.bglhs.net/', substring-after(substring-after($url, 'https://'), '/'))"/>
-    </xsl:variable>
-
-    <!-- Return the modified URL -->
-    <xsl:value-of select="$modifiedURL"/>
-</xsl:template>
-
-  <xsl:template name="replaceString">
-    <xsl:param name="input"/>
-    <xsl:param name="search"/>
-    <xsl:param name="replace"/>
-    <xsl:param name="url"/>
-    <xsl:choose>
-      <xsl:when test="contains($input, $search)">
-        <xsl:value-of select="substring-before($input, $search)"/>
-        <xsl:value-of select="$replace"/>
-        <xsl:call-template name="replaceString">
-          <xsl:with-param name="input" select="substring-after($input, $search)"/>
-          <xsl:with-param name="search" select="$search"/>
-          <xsl:with-param name="replace" select="$replace"/>
-          <xsl:with-param name="url" select="$url"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="concat($url, $input)"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-<!-- Use the template to construct the URL for document() function -->
-<xsl:template name="bg_replace_character">
-  <xsl:param name="text"/>
-  <xsl:param name="replace"/>
-  <xsl:param name="by"/>
-  <xsl:choose>
-    <xsl:when test="contains($text,$replace)">
-      <xsl:value-of select="substring-before($text,$replace)"/>
-      <xsl:value-of select="$by"/>
-      <xsl:call-template name="bg_replace_character">
-        <xsl:with-param name="text" select="substring-after($text,$replace)"/>
-        <xsl:with-param name="replace" select="$replace"/>
-        <xsl:with-param name="by" select="$by"/>
-      </xsl:call-template>
-    </xsl:when>
-        <xsl:otherwise>
-            <xsl:value-of select="$text" />
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
-
-<xsl:template name="bg_rewrite_url">
-    <xsl:param name="url"/>
-    <xsl:variable name="replaced-text">
-    <xsl:call-template name="bg_replace_character">
-        <xsl:with-param name="text" select="substring-before(substring-after($url,'https://'),'/')" />
-        <xsl:with-param name="replace" select="'-'" />
-        <xsl:with-param name="by" select="'--'" />
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:value-of select="concat('https://', translate(translate($replaced-text, '.', '-'), ':', '-'), '.bglhs.net/', substring-after(substring-after($url, 'https://'), '/'))"/>
-  
-</xsl:template>    
-
+<xsl:template name="bg_replace_character"><xsl:param name="text"/><xsl:param name="replace"/><xsl:param name="by"/><xsl:choose><xsl:when test="contains($text,$replace)"><xsl:value-of select="substring-before($text,$replace)"/><xsl:value-of select="$by"/><xsl:call-template name="bg_replace_character"><xsl:with-param name="text" select="substring-after($text,$replace)"/><xsl:with-param name="replace" select="$replace"/><xsl:with-param name="by" select="$by"/></xsl:call-template></xsl:when><xsl:otherwise><xsl:value-of select="$text" /></xsl:otherwise></xsl:choose></xsl:template><xsl:template name="bg_rewrite_url"><xsl:param name="url"/><xsl:variable name="replaced-text"><xsl:call-template name="bg_replace_character"><xsl:with-param name="text" select="substring-before(substring-after($url,'https://'),'/')" /><xsl:with-param name="replace" select="'-'" /><xsl:with-param name="by" select="'--'" /></xsl:call-template></xsl:variable><xsl:value-of select="concat(concat('https://', translate(translate($replaced-text, '.', '-'), ':', '-'),''),'.bglhs.net/', substring-after(substring-after($url, 'https://'), '/'))"/></xsl:template>
 
 
 <!-- <xsl:variable name="newtext">
