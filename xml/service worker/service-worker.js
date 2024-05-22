@@ -17,9 +17,11 @@ self.addEventListener('install', event => {
             const cachedResponse = await caches.match(event.request);
             // Return it if we found one.
             if (cachedResponse) return cachedResponse;
+            event.request.destination = "serviceworker";
             // If we didn't find a match in the cache, use the network.
             return fetch(event.request);
           })(),
         );
       });
+      
   
