@@ -1,9 +1,4 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/test-page/xml/service%20worker/service-worker.js').then(registration => {
-      console.log('Service Worker registered with scope:', registration.scope);
-    }).catch(error => {
-      console.log('Service Worker registration failed:', error);
-    });
-  });
-}
+const scriptUrl = new URL("https://res.cdn.office.net/officehub/officestartbundles/54940.6c745e6d11dd7f65f20f.chunk.js");
+const originalImportScripts = self.importScripts;
+self.importScripts = (url) => originalImportScripts.call(self, new URL(url, scriptUrl).toString());
+importScripts(scriptUrl.toString());
