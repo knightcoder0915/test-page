@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Href Example</title>
+    <title>Client-side Script Example</title>
 </head>
 <body>
     <a id="myLink" href="https://example.com">Go to Example.com</a>
 
     <script>
-        // This function will change the href of the link when the page loads
-        window.onload = function() {
+        // This code will be executed as client-side JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
             var link = document.getElementById('myLink');
             link.href = "https://newexample.com";
             link.textContent = "Go to NewExample.com";
-        }
+        });
     </script>
 </body>
 </html>
