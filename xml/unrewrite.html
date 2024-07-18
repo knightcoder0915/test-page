@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client-side Script Example</title>
-    <!DOCTYPE html>
-    <html>
-    <body>
-    
-    <h1>JavaScript Global Methods</h1>
-    <h2>The eval() Method</h2>
-    
-    <p id="demo"></p>
+</head>
+<body>
+    <a id="myLink" href="https://example.com">Go to Example.com</a>
 
     <script>
         var link = document.getElementById('myLink');
@@ -20,15 +15,13 @@
     </script>
     
     <script>
-    let x = 10;
-    let y = 20;
-    let text = "x * y";
-    obj=document.getElementbByTagname("script");
-    console.log(obj.textcontent);
-    let result = eval(obj);
-    
-    document.getElementById("demo").innerHTML = result;
+        let x = 10;
+        let y = 20;
+        let text = "x * y";
+        let obj = document.getElementsByTagName("script");
+        for (let i = 0; i < obj.length; i++) {
+            console.log(obj[i].textContent);
+        }
     </script>
-    
-    </body>
+</body>
 </html>
