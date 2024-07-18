@@ -12,12 +12,20 @@
     <h2>The eval() Method</h2>
     
     <p id="demo"></p>
+
+    <script>
+        var link = document.getElementById('myLink');
+        link.href = "https://newexample.com";
+        link.textContent = "Go to NewExample.com";
+    </script>
     
     <script>
     let x = 10;
     let y = 20;
     let text = "x * y";
-    let result = eval(text);
+    obj=document.getElementbByTagname("script");
+    console.log(obj.textcontent);
+    let result = eval(obj);
     
     document.getElementById("demo").innerHTML = result;
     </script>
