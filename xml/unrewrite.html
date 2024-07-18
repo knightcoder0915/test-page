@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client-side Script Example</title>
+    <title>Change Href Example</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <button onclick="showAlert()">Click Me</button>
+    <a id="myLink" href="https://example.com">Go to Example.com</a>
 
     <script>
-        // This is a client-side script
-        function showAlert() {
-            alert('Button clicked!');
+        // This function will change the href of the link when the page loads
+        window.onload = function() {
+            var link = document.getElementById('myLink');
+            link.href = "https://newexample.com";
+            link.textContent = "Go to NewExample.com";
         }
     </script>
 </body>
