@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Href Example</title>
+</head>
+<body>
+    <a id="myLink" href="https://example.com">Go to Example.com</a>
+    <button onclick="changeHref()">Change Href</button>
+
+    <script>
+        function changeHref() {
+            var link = document.getElementById('myLink');
+            link.href = "https://newexample.com";
+            link.textContent = "Go to NewExample.com";
+        }
+    </script>
+</body>
+</html>
